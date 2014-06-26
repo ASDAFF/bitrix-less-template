@@ -11,10 +11,10 @@ html body {
     font-family: @font_family_default;
     font-weight: @font_weight_default;
     font-size:   @metric_font_size;
-    color: @color_dark_blue;
+
 
     a {
-        color: @color_dark_blue;
+        
     }
 
     margin:0;
@@ -22,145 +22,5 @@ html body {
 
     padding-top:@metric_body_top_padding;
 
-    /*PROGRESS*/
-    .progress {
-        margin-top: @metric_default_margin;
-        font-size: @metric_font_size_h6;
-        .progress;
 
-        &.progress-danger .filled {
-            background: @color_red;
-        }
-
-        &.progress-warning .filled {
-            background: @color_yellow;
-        }        
-    }
-
-    /*TABS*/
-    .tabs {
-        .clearfix;
-        min-height: 47px;
-        float:right;
-        ul {
-            float: right;
-            border-bottom:none;
-            margin:0;
-            padding:0;
-
-            li {
-                border:none;
-
-                a, span.a {
-                    margin: 0 5px 0 0;
-                    .button;
-                }
-
-                &.active a {
-                    .button-hover;
-                }
-            }
-        }
-    }
-
-    .tabs-wrapper {
-        .clearfix;
-    }
-
-    /*Верх*/
-    .main-menu {
-        border: 6px solid @color_blue;
-        border-left: none;
-        border-right:none;
-
-        .main-menu-inner { 
-            width: @metric_template_width;
-            margin: 0 auto;
-            position: relative;
-
-            ul.links {
-
-                .clearfix;
-
-                li {
-                    display:block;
-                    float:left;
-
-                    a {
-                        display:block;
-                        float: left;
-                        padding: 10px 20px;
-                        text-decoration: none;
-                        color: @color_dark_blue;
-                        border-bottom: 2px solid transparent;
-
-                        &:hover, &.active {
-                            background: @color_light_blue;
-                            border-bottom-color: @color_orange;
-                        }
-                    }                
-                }
-            }
-
-            /*REGION TOP RIGHT*/
-            .region-top-right {
-                position: absolute;
-                right: 0;
-                top: 0;
-                .clearfix;
-
-                .block {
-                    .display-inline;
-                }
-            }
-        }
-    }
-
-    .logo {
-        margin: 0 auto;
-        width: @metric_template_width;
-        border-bottom: 6px solid @color_dark_blue;
-
-        img {
-            display:block;
-        }
-    }
-
-    /*Основное содержимое*/
-    .main-content {
-        width: @metric_template_width;
-        margin: 0 auto;
-
-        .sidebar {
-            width: 250px;
-            .display-inline;
-        }
-
-        &.with-sidebar {
-            overflow:hidden;
-            .main-content-inner {
-                width:890px;
-                .display-inline;
-                float:right;
-                position: relative;
-            }
-        }
-
-        .course-list-wrapper;
-        .course-lections;
-    }
-
-    /*Подвал*/
-    .footer {
-        height: 40px;
-        background: @color_blue;
-
-        margin: @metric_default_margin 0;
-
-        .footer-inner {
-            margin: 0 auto;
-            width: @metric_template_width;
-        }
-
-    }
 }
