@@ -33,7 +33,11 @@ class less {
      * @return boolean
      */
     public static function checkCompile($input_file, $output_file) {
-        return self::getLessc()->checkedCompile($input_file, $output_file);
+        if(filter_input(INPUT_GET,'clear_cache') !== 'Y'){
+            return self::getLessc()->checkedCompile($input_file, $output_file);
+        } else {
+            return self::getLessc()->compileFile($input_file, $output_file);
+        }
     }
 
 }
