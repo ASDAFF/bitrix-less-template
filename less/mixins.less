@@ -1,0 +1,95 @@
+/**
+ * Файл содержащий мои собственные примеси mixins
+ * @author Soshnikov Artem <client@skobka.com>
+ * @version 6.x-1.0
+ * @copyright (c) 06.03.2014, Творческая группа Скобка
+ * @website http://skobka.com
+ * @license http://skobka.com/license.html
+ */
+
+/**
+ * Притворяется inline-block. По-больше части для IE
+*/
+.display-inline {
+    display:block;
+    float:left;
+    vertical-align: baseline;
+}
+
+/*
+ * "Очищает" элемент от обтекающих элементов снаружи
+ */
+.clearfix() {
+    &:after, &:before {
+        content: " ";
+        display:block;
+        clear:both;
+        height: 1px;
+        overflow:hidden;
+        color: transparent;
+        font-size:0;
+    }
+}
+
+.progress() {
+    font-weight: normal;
+    
+    .bar {
+        height: 6px;
+        padding:4px;
+        .rounded(10px);
+        background: @color_grey;
+        border:none;
+        overflow: hidden;
+        margin-top:5px;
+        width:100%;
+    }
+    
+    .filled {
+        height: 6px;
+        background: @color_green;
+        .rounded(10px);
+        border:none;
+    }
+}
+
+.icon(){
+    background-image: url(../images/icons.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    padding-left: 30px;
+}
+
+.icon-duration(){
+    .icon();
+    background-position: 0 0px;
+}
+
+.icon-datebegin(){
+    .icon();
+    background-position: 0 -26px;
+}
+
+.icon-peoplemax() {
+    .icon();
+    background-position: 0 -47px;
+}
+
+.icon-payed(){
+    .icon();
+    background-position: 0 -72px;
+}
+
+.icon-cert(){
+    .icon();
+    background-position: 0 -99px;
+}
+
+.form-submit {
+    .button;
+    background: @color_light_blue;
+    cursor:pointer;
+    &:hover {
+        .button-hover;
+    }
+}
