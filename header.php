@@ -13,7 +13,7 @@
 /*
  * Подключаем наш основной класс шаблона
  */
-include_once SITE_TEMPLATE_PATH . '/class/skobka/bitrix/template.php';
+include_once dirname(__FILE__) . '/class/skobka/bitrix/template.php';
 
 /* @var $oTemplate skobka\bitrix\template */
 $oTemplate = new \skobka\bitrix\template(__FILE__);
