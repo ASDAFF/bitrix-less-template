@@ -26,6 +26,7 @@ $oTemplate->init();
 ?><!DOCTYPE html>
 <html>
     <head>
+        <title><?=$APPLICATION->ShowTitle();?></title>
         <? $APPLICATION->ShowHead();?>
     </head>
     <body>
