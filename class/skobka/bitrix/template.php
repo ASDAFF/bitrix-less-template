@@ -80,9 +80,9 @@ class template {
     public function includeJsFiles() {
         /* @var $APPLICATION \CMain */
         global $APPLICATION;
-        $aCss = $this->getTemplateParam("TPL_INCLUDE_JS", array());
-        foreach ($aCss as $file) {
-            $APPLICATION->AddHeadScript($this->inited_dir . DIRECTORY_SEPARATOR . $file);
+        $aJS = $this->getTemplateParam("TPL_INCLUDE_JS", array());
+        foreach ($aJS as $file) {
+            $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . '/' . $file);
         }
         return $this;
     }
