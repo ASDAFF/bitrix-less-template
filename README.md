@@ -67,3 +67,40 @@ Bitrix LESS Template
 ),
 
 ```
+
+Изначально подразумевается, что пользовательские обработчики будут хранится в пользовательских классах соотвествующего namespace (Обратите внимание: все пользовательские файлы необходимо подключить через TPL_INCLUDE_LIB). 
+
+Можно подключить обработчик без написания класса, если такое действие является излишним или необходимо написать корневую функцию. Для этого необходимо просто подключить свой php файл через TPL_INCLUDE_LIB положив его в любое удобное место в шаблоне. Например:
+
+```php
+
+// Файл descripion.php
+
+"TPL_INCLUDE_LIB" => array(
+   // ........... 
+   //то что было
+   
+   "lib/functions.php"
+),
+
+// Файл lib/functions.php
+
+/**
+* Функция приветсвия
+* @return string
+*/
+function my_function() {
+    return "hello";
+}
+
+```
+
+Заключение
+--
+Данный шаблон разрабатывается под собственные нужды. Он будет использоваться как болванка для создания шаблонов оформления сайтов на 1С-Битрикс. 
+
+Приветствуются любые пожелания и предложения по развитию данного проекта.
+
+Лицензия
+--
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Лицензия Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />Произведение «<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Bitrix LESS Template</span>» созданное автором по имени <a xmlns:cc="http://creativecommons.org/ns#" href="https://github.com/Doka-NT/bitrix-less-template" property="cc:attributionName" rel="cc:attributionURL">Сошников Артём</a>, публикуется на условиях <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">лицензии Creative Commons «Attribution» («Атрибуция») 4.0 Всемирная</a>.
