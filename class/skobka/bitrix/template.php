@@ -134,4 +134,19 @@ class template {
         }
     }
 
+    /**
+     * Получить информацию о текущем сайте
+     * @param string $key
+     * @return null
+     */
+    public function getSiteInfo($key = null){
+        $info = \CSite::GetByID(SITE_ID)->Fetch();
+        if(is_null($key)){
+            return $info;
+        }
+        if(array_key_exists($key, $info)){
+            return $info[$key];
+        }
+        return null;
+    }
 }
