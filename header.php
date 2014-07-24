@@ -28,6 +28,7 @@ $oTemplate->init();
     <head>
         <title><?=$APPLICATION->ShowTitle();?></title>
         <? $APPLICATION->ShowHead();?>
+        <meta name="viewport" content="width=device-width">
     </head>
     <body>
         <? $APPLICATION->ShowPanel();?>
