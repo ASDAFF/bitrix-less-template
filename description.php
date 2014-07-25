@@ -20,7 +20,8 @@ $arTemplate = array(
      */
     "TPL_INCLUDE_LIB" => array(
         'lib/lessphp/lessc.inc.php',
-        'class/skobka/less/less.php'
+        'class/skobka/less/less.php',
+        'lib/kint-0.9/Kint.class.php'
     ),
     "TPL_CUSTOM_FUNCTIONS" => array(
         array(
