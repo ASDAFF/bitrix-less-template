@@ -14,13 +14,33 @@
 include_once dirname(__FILE__) . '/class/skobka/bitrix/template.php';
 
 /* @var $oTemplate skobka\bitrix\template */
-$oTemplate = new \skobka\bitrix\template(__FILE__);
+$GLOBALS['oTemplate'] = $oTemplate = new \skobka\bitrix\template(__FILE__);
 /*
  * Инициализируем нашу систему темизации
  */
 $oTemplate->init();
 
+/* @var $USER CUser */
+global $USER;
+
+$is_fixed_menu = $USER->IsAdmin() ? false : true;
 /* @var $APPLICATION CMain */
+
+$arMessages = $_SESSION['SKOBKA_MESSAGES'];
+
+function skobka_set_message($message, $type = 'info') {
+    if (!is_array($_SESSION['SKOBKA_MESSAGES'])) {
+        $_SESSION['SKOBKA_MESSAGES'] = array();
+    }
+    $_SESSION['SKOBKA_MESSAGES'][] = array(
+        'type' => $type,
+        'message' => $message,
+    );
+}
+
+function skoba_clean_message() {
+    $_SESSION['SKOBKA_MESSAGES'] = array();
+}
 ?><!DOCTYPE html>
 <html>
     <head>

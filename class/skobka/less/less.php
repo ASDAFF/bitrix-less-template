@@ -1,10 +1,10 @@
 <?php
 
 /**
- * ÐšÐ»Ð°ÑÑ Ð¿Ð¾ Ñ€Ð°Ð±Ð¾Ñ‚Ðµ Ñ Ð±Ð¸Ð±Ð»ÐµÐ¾Ñ‚ÐµÐºÐ¾Ð¹ lessc
+ * Êëàññ ïî ðàáîòå ñ áèáëåîòåêîé lessc
  * @author Soshnikov Artem <client@skobka.com>
  * @version 1.0.1
- * @copyright (c) 26.06.2014, Ð¢Ð²Ð¾Ñ€Ñ‡ÐµÑÐºÐ°Ñ Ð³Ñ€ÑƒÐ¿Ð¿Ð° Ð¡ÐºÐ¾Ð±ÐºÐ°
+ * @copyright (c) 26.06.2014, Òâîð÷åñêàÿ ãðóïïà Ñêîáêà
  * @website http://skobka.com
  * @license http://skobka.com/license.html
  */
@@ -14,7 +14,7 @@ namespace skobka\less;
 class less {
 
     /**
-     * Ð’Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÐ¼ ÑÐ¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ñ‹Ð¹ Ð¸Ð»Ð¸ Ð½Ð¾Ð²Ñ‹Ð¹ Ð¾Ð±ÑŠÐµÐºÑ‚ lessc
+     * Âîçâðàùàåì ñîõðàíåíûé èëè íîâûé îáúåêò lessc
      * @global \lessc $skobka_less_lessc
      * @return \lessc
      */
@@ -27,17 +27,22 @@ class less {
     }
     
     /**
-     * ÐšÐ¾Ð¿Ð¼Ð¸Ð»Ð¸Ñ€ÑƒÐµÐ¼ less Ñ„Ð°Ð¹Ð» Ñ Ð¿Ñ€Ð¾Ð²ÐµÑ€ÐºÐ¾Ð¹ Ð½Ð° Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ð¾ÑÑ‚ÑŒ
+     * Êîïìèëèðóåì less ôàéë ñ ïðîâåðêîé íà îáíîâëåííîñòü
      * @param string $input_file
      * @param string $output_file
      * @return boolean
      */
     public static function checkCompile($input_file, $output_file) {
-        if(filter_input(INPUT_GET,'clear_cache') !== 'Y'){
+        global $USER;
+        $is_from_wizard = $_SESSION['skobka_card_compile'];
+        $regular = (filter_input(INPUT_GET,'clear_cache') !== 'Y') && !$USER->isAdmin();
+        if(!$is_from_wizard || $regular){
             return self::getLessc()->checkedCompile($input_file, $output_file);
         } else {
+            unset($_SESSION['skobka_card_compile']);
             return self::getLessc()->compileFile($input_file, $output_file);
         }
     }
 
 }
+

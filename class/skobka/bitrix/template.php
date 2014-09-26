@@ -135,7 +135,7 @@ class template {
     }
 
     /**
-     * Получить информацию о текущем сайте
+     * 
      * @param string $key
      * @return null
      */
@@ -148,5 +148,22 @@ class template {
             return $info[$key];
         }
         return null;
+    }
+    
+    /**
+     * 
+     * @param type $url
+     * @param type $content
+     * @param type $type
+     * @return type
+     */
+    public function getLightboxLink($url, $content, $type = 'image'){
+        global $isFeatherlightLoaded, $APPLICATION;
+        /* @var $APPLICATION CMain */
+        if(!$isFeatherlightLoaded){
+            $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . '/js/featherlight/featherlight.js');
+            $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . '/js/featherlight/featherlight.css');
+        }
+        return '<a href="' . $url . '" data-featherlight="image">' . $content . '</a>';
     }
 }
